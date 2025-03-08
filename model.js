@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const schema =new mongoose.schema({
+const schema =new mongoose.Schema({
     user:{
         type:String,
         required:true
@@ -20,7 +20,6 @@ const schema =new mongoose.schema({
     exercises:[{
         name:{
             type:String,
-            required:true
         },
         reps:{
             type:Number,

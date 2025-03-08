@@ -1,18 +1,20 @@
-import { workout, workout } from "./model";
+import { workout} from "./model.js";
 
 const create = async(req,res)=>{
     try{
     const {user,date,duration,caloriesBurned,exercises}=req.body
-    const newwork={user,date,duration,caloriesBurned,exercises}
+    const newwork=new workout({user,date,duration,caloriesBurned,exercises})
     await newwork.save()
+    res.json(newwork)
 }catch(error){
-    res.status(400).json({"error":"validation failed:[field] is required"})
+    res.status(400).json({"error":"validation failed is required"})
 }
 }
 
 const get=async(req,res)=>{
    try{
-    const workout=await workout.findById(req.params.id)
+    const Workout  = await workout.findById(req.params.id)
+    res.status(200).json({"work":workout})
     
    }
    catch(error)

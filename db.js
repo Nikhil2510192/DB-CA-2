@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 import "dotenv/config"
 
-const connectDB= async()=>{
+const connectDB= async(req,res)=>{
     try{
         await mongoose.connect(process.env.MONGO)
         console.log("connected successfully")
     }catch(error){
-        res.status(500).json({"error":"something went wrong"})
+        throw error
     }
 }
 
